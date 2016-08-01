@@ -1,0 +1,275 @@
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+	background-color: #f1f1f0;
+}
+
+
+.content {
+	margin-top: 80px;
+}
+.grid {
+	display: inline;
+	float: left;
+	margin: 10px;
+	background: #fff;
+}
+.photogrid {
+	max-height: 300px;
+	max-width: 300px;
+}
+
+.rounded {
+	border-radius:5px;
+}
+
+
+
+.title-muted {
+	font-size: 14px;
+	font-family: "Open Sans";
+	color: rgb(200, 206, 227);
+	text-transform: uppercase;
+	line-height: 1.2;
+	text-align: left;
+	border-bottom: rgb(200, 206, 227) 1px solid;
+	width: 540px;
+	padding-bottom: 10px;
+	padding-top: 20px;
+}
+
+.text-bottom-border {
+	width: 80%;
+	line-height: 1.2;
+	border-bottom: 1px solid;
+	padding-bottom: 10px;
+	padding-top: 20px;
+}
+
+/* nav */
+
+nav {
+	opacity: .98;
+  background:#ffffff;
+  
+}
+
+/**************/
+footer {
+	width: 100%;
+	text-align: center;
+	background: #323232;
+	color: #888;
+}
+.row-space-1 {
+	margin-bottom: 6.25px
+}
+.row-space-top-1 {
+	margin-top: 6.25px
+}
+.row-space-2 {
+	margin-bottom: 12.5px
+}
+.row-space-top-2 {
+	margin-top: 12.5px
+}
+.row-space-3 {
+	margin-bottom: 18.75px
+}
+.row-space-top-3 {
+	margin-top: 18.75px
+}
+.row-space-4 {
+	margin-bottom: 25px
+}
+.row-space-top-4 {
+	margin-top: 25px
+}
+.row-space-5 {
+	margin-bottom: 31.25px
+}
+.row-space-top-5 {
+	margin-top: 31.25px
+}
+.row-space-6 {
+	margin-bottom: 37.5px
+}
+.row-space-top-6 {
+	margin-top: 37.5px
+}
+.row-space-7 {
+	margin-bottom: 43.75px
+}
+.row-space-top-7 {
+	margin-top: 43.75px
+}
+.row-space-8 {
+	margin-bottom: 50px
+}
+.row-space-top-8 {
+	margin-top: 50px
+}
+.col-padding-right {
+	padding-right: 15px;
+}
+.thumb {
+	margin-bottom: 30px;
+}
+login-form {
+  position: relative;
+  padding: 24px 33px 20px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  max-width: 400px;
+	min-width: 300px;
+	margin: auto;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	}
+.side-active {
+	background: #3699f3;
+	color: #fff;
+}
+.side-active a {
+	color: #fff;
+}
+
+.side-active a:hover {
+	color:#5e6969;
+}
+
+.drop-shadow {
+	    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
+}
+
+/* sidebar style */
+.sidebar {
+  /*top: 20px;*/
+  z-index: 1;
+}
+.sidebar {
+  /*top: 20px;*/
+  z-index: 1;
+}
+.sidebar ul {
+  /*width: 100%; */
+  
+}
+.sidebar li > a {
+  font-size: 16px;
+  padding: 10px 15px;
+  color: #5e6969;border-radius: 6px;
+}
+.sidebar li > a:hover {
+  background: #3699f3;
+  color: white;
+}
+.sidebar li.active > a {
+  background: #3699f3;
+  color: white;
+}
+.sidebar li:first-child.active > a,
+.sidebar li:first-child > a:hover {
+  border-top-left-radius: 5px;
+}
+.sidebar li:last-child.active > a,
+.sidebar li:last-child > a:hover {
+  border-bottom-left-radius: 5px;
+}
+
+.tile {
+  border-radius: 6px;
+  padding: 35px 25px 40px 25px;
+  position: relative;
+  text-align: center;
+}
+.tile-profile {
+  background-color: #fff;
+}
+.tile-profile img {
+  border-radius: 50%;
+}
+.tile-profile h4 {
+  margin-bottom: 2px;
+  margin-top: 20px;
+}
+.tile-profile p {
+  text-transform: uppercase;
+}
+
+.tile-login {
+  background: #fff;
+  padding-bottom: 55px;
+}
+.tile-login h3.logo {
+  color: #3699f3;
+  font-size: 30px;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+/*.tile-login input {
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+}
+.tile-login input[type="text"] {
+  margin-bottom: 1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.tile-login input[type="password"] {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  margin-bottom: 20px;
+}*/
+.tile-login a.btn {
+  margin-bottom: 10px;
+}
+.tile-login .checkbox .first-icon,
+.tile-login .checkbox .second-icon {
+  background: rgba(0, 0, 0, 0.2);
+  border: 0;
+}
+.tile-login .login-action div[class*='col-'] {
+  padding: 0;
+}
+.tile-login .login-action a {
+  font-size: 14px;
+  margin-top: 10px;
+  display: block;
+}
+.tile-login label.checkbox {
+  
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+
+.panel-heading {
+    color: #484848;
+    font-size: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #dce0e0;
+}
+
+.left-to-center {
+}
+
+@media (max-width: 767px) {
+  .left-to-center {
+    text-align:center;
+}
+}
+
+.rent-listing-image {
+  width: 100%;
+  max-width:500px;
+  border-radius:4px;
+}
