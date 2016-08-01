@@ -5,7 +5,7 @@ img {
 }
 section {
   background: #f75558;
-  font-family: 'Open Sans', "Raleway";
+  font-family: "Raleway";
   font-size: 16px;
   line-height: 22px;
   min-height: 100vh;
@@ -28,18 +28,19 @@ section {
   position: relative;
 }
 h1 {
-  font-size: 80px;
+  font-size: 120px;
   color: #fff;
-  mix-blend-mode: normal;
+  /*mix-blend-mode: multiply;*/
   font-weight: 700;
   font-family: "Righteous";
   margin-top: 60px;
   margin-bottom: 40px;
   margin-left: -95px;
+  opacity:.7;
 }
 h2 {
   font-size: 25px;
-  color: #fff;
+  color: pink;
   line-height: 35px;
 }
 p {
@@ -69,7 +70,7 @@ a.button:hover {
 .balloon {
   margin: 0 !important;
   padding: 0 !important;
-  background: url(https://ems.itu.edu/assets/login-bg-a94fad4395ae130a8bae37f0f151e4bf.jpg)  no-repeat top left;
+  background: url(../img/landing_hero.jpg) no-repeat top left;
   background-attachment: fixed;
   background-size: contain;
   min-height: 100vh;
@@ -88,7 +89,7 @@ a.button:hover {
     height: 100%;
   }
   h1 {
-    margin: -55vw 20px 0 20px;
+    margin: -60vw 20px 0px 20px;
     font-size: 24vw;
     color:#f75558;
   }
