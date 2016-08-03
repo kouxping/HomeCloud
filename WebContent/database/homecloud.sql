@@ -21,18 +21,20 @@ CREATE TABLE `Owner` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1;
 
 
-DROP TABLE IF EXISTS `Rent`;
-CREATE TABLE `Rent` (
+CREATE TABLE `rent` (
   `rentID` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ownerEmail` varchar(50) NOT NULL,
-  `price` integer,
-  `address` varchar(100),
-  `zipcode` varchar(20),
+  `price` int(11),
   `type` varchar(50),
   `date` varchar(50),
-  `description` LONGTEXT,
-  `bedrooms` integer,
-  `bathrooms` integer,
+  `bedrooms` varchar(10),
+  `bathrooms` varchar(10),
+  `street1` varchar(100),
+  `street2` varchar(45),
+  `city` varchar(45),
+  `state` varchar(45),
+  `zipcode` varchar(20),
+  `description` longtext,
   `image` varchar(100),
   PRIMARY KEY (`rentID`)
-) ENGINE=InnoDB AUTO_INCREMENT=1;
+) ENGINE=InnoDB AUTO_INCREMENT=226 DEFAULT CHARSET=utf8;

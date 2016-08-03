@@ -49,7 +49,7 @@
         <ul class="nav navbar-nav navbar-right">
           
           <li class=" active">
-            <a href="rent-listing.html">
+            <a href="rent-listing.jsp">
               <i class="fa fa-building-o"></i>&nbsp;&nbsp;My Listing
             </a>
           </li>
@@ -60,12 +60,12 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a href="account.html">
+                <a href="account.jsp">
                   Profile
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="host-login.html">
                   Log Out
                 </a>
               </li>
@@ -82,7 +82,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-xs-12"><div>
-          <a href="rent-add.html" class="btn btn-primary btn-block btn-lg text-capitalize" target="_blank">
+          <a href="rent-add.jsp" class="btn btn-primary btn-block btn-lg text-capitalize" target="_blank">
           <i class="fa fa-plus"></i>&nbsp;&nbsp;add listing</a>
         </div><br></div>
         <div class="col-md-9 col-xs-12">
@@ -95,6 +95,7 @@
 						ResultSet rs = con.getRs("SELECT * FROM rent WHERE ownerEmail = '" + strEmail + "'");
 						while (rs.next()) {
 					%>
+			<form action="rent-edit.jsp">
               <div class="row left-to-center">
               <div class="col-sm-3 text-center">
               <h3><img src="https://placem.at/places?w=500&h=500" alt="House Image" class="rent-listing-image"></h3>
@@ -102,8 +103,9 @@
                 <div class="col-sm-9">
                   <h1 class="text-uppercase">
                   <i class="fa fa-dollar"></i>
-                  3,000</h1>
-                  <h5><i class="fa fa-map-marker"></i>&nbsp;&nbsp;<%=rs.getString("address")%></h5>
+                  <%=rs.getString("price")%></h1>
+                  <h5><i class="fa fa-map-marker"></i>&nbsp;&nbsp;<%=rs.getString("street1")%>
+                  &nbsp;<%=rs.getString("street2")%>&nbsp;<%=rs.getString("city")%>&nbsp;<%=rs.getString("state")%>&nbsp;<%=rs.getString("zipcode")%></h5>
                   <h6><i class="fa fa-building-o"></i>&nbsp;&nbsp;<%=rs.getString("type")%></h6>
 
                   <h6 class="text-muted"><%=rs.getString("date")%></h6>
@@ -115,29 +117,12 @@
                 </div>
                 
               </div>
+              </form>
+               <hr>
               			<%
 						}
 					%>
-              <hr>
-              <div class="row left-to-center">
-              <div class="col-sm-3 text-center">
-              <h3><img src="https://placem.at/places?w=500&h=500" alt="House Image" class="rent-listing-image"></h3>
-              </div>
-                <div class="col-sm-9">
-                  <h1 class="text-uppercase">
-                  <i class="fa fa-dollar"></i>
-                  3,000</h1>
-                  <h5><i class="fa fa-map-marker"></i>&nbsp;&nbsp;2711 N 1st St, San Jose, CA 95134</h5>
-                  <h6><i class="fa fa-building-o"></i>&nbsp;&nbsp;Apartment</h6>
-
-                  <h6 class="text-muted">Mar 14, 2016</h6>
-                  <a class="btn btn-primary" href="../host/rent-edit.html" target="_blank">
-                      Edit
-                    </a>
-                 
-                </div>
-                
-              </div>
+             
             
             </div>
           </div>

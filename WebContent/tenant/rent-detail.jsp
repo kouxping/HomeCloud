@@ -125,11 +125,11 @@ ResultSet rs=con.getRs("SELECT * FROM rent where rentID='"+rentID+"'");
                 <div class="col-md-3 col-sm-12">
                   <div class="text-capitalize">
                     <h4>Bedrooms</h4>
-                    <p><%=rs.getInt("bedrooms")%></p>
+                    <p><%=rs.getString("bedrooms")%></p>
                   </div>
                   <div class="text-capitalize">
                     <h4>Bathrooms</h4>
-                    <p><%=rs.getInt("bathrooms")%></p>
+                    <p><%=rs.getString("bathrooms")%></p>
                   </div>
                 </div>
               </div>

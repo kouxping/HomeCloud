@@ -11,7 +11,7 @@ public class Conn {
 	private Statement stmt;
 	private ResultSet rs;
 	private static final String drivername = "com.mysql.jdbc.Driver";
-	private static final String url = "jdbc:mysql://localhost:3306/homecloud?user=root&password=";
+	private static final String url = "jdbc:mysql://localhost:3306/homecloud?user=root&password=0000";
 
 
 	public static synchronized Connection getCon() throws Exception {

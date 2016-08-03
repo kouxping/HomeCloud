@@ -3,21 +3,18 @@
 <%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<title>My Account Setting | HomeCloud</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="../js/default.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <title>My Account Setting | HomeCloud</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Loading Bootstrap -->
-<link href="../dist/css/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
+    <!-- Loading Bootstrap -->
+    <link href="../dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Loading Flat UI -->
-<link href="../dist/css/flat-ui.css" rel="stylesheet">
-<!-- Favicon -->
+    <!-- Loading Flat UI -->
+    <link href="../dist/css/flat-ui.css" rel="stylesheet">
 
-<link rel="shortcut icon" href="../dist/img/favicon.png">
+    <link rel="shortcut icon" href="../dist/img/favicon.png">
 
 <!-- Custom CSS -->
 <link
@@ -25,58 +22,67 @@
 	rel="stylesheet prefetch">
 <link href="../dist/css/style.css" rel="stylesheet">
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-</head>
-
+  </head>
+  
 
 <body>
 	<%
 		Conn con = new Conn();
 		String strEmail = (String) session.getAttribute("email");
-		ResultSet rs = con.getRs("SELECT * FROM tenant WHERE email='"
+		ResultSet rs = con.getRs("SELECT * FROM owner WHERE ownerEmail='"
 				+ strEmail + "'");
 		if (rs.next()) {
 	%>
-	<!-- Navigation -->
-	<nav class="navbar navbar-default navbar-fixed-top drop-shadow"
-		role="navigation">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top drop-shadow" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#navbar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-				</button>
-				<span class="navbar-brand">HomeCloud</span>
-			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="navbar-collapse">
-				<ul class="nav navbar-nav navbar-right">
-
-					<li><a href="../tenant/rent-listing.jsp"> <i
-							class="fa fa-home"></i>&nbsp;&nbsp;Search
-					</a></li>
-					<li class="dropdown active"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown"> <em
-							class="fa fa-user"></em> &nbsp; Account <span class="caret"></span>
-					</a>
-						<ul class="dropdown-menu">
-							<li class=" active"><a href="../tenant/account.jsp">
-									Profile </a></li>
-							<li><a href="../tenant/tenant-login.html"> Log Out </a></li>
-						</ul></li>
-				</ul>
-
-			</div>
-			<!-- /.navbar-collapse -->
-		</div>
-	</nav>
+        <span class="sr-only">Toggle navigation</span>
+        </button>
+        <span class="navbar-brand">HomeCloud</span>
+      </div>
+      
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li>
+            <a href="rent-listing.jsp">
+              <i class="fa fa-building-o"></i>&nbsp;&nbsp;My Listing
+            </a>
+          </li>
+          <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <em class="fa fa-user"></em>
+  &nbsp; Account <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class=" active">
+                <a href="account.html">
+                  Profile
+                </a>
+              </li>
+              <li>
+                <a href="host-login.html">
+                  Log Out
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+  </nav>
 	<!-- Page Content -->
 
 	<section class="content">
@@ -109,7 +115,7 @@
 									<label for="inputEmail1" class="col-sm-3 control-label">Email</label>
 									<div class="col-sm-9 ">
 										<input type="email" class="form-control" id="email" name="email"
-											placeholder="Email" value="<%=rs.getString("email")%>"
+											placeholder="Email" value="<%=rs.getString("ownerEmail")%>"
 											disabled>
 									</div>
 								</div>
@@ -118,7 +124,6 @@
 										<button type="submit" class="btn btn-primary btn-block">Save</button>
 									</div>
 								</div>
-
 							</div>
 						</div>
 					</form>
@@ -126,10 +131,6 @@
 						action="account-update.jsp">
 						<div class="panel text-center">
 							<div class="panel-body">
-
-
-
-
 								<div class="form-group">
 									<label for="inputEmail1" class="col-sm-3 control-label">Old
 										Password</label>
@@ -174,19 +175,19 @@
 	</section>
 	<!-- /.container -->
 
-	<!-- Bootstrap core JavaScript-->
+  <!-- Bootstrap core JavaScript-->
+  
+<script src="../js/jquery.min.js"></script>
+  <script src="../js/vendor/jquery.min.js"></script>
+  <!-- Placed at the end of the document so the pages load faster -->
 
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/vendor/jquery.min.js"></script>
-	<!-- Placed at the end of the document so the pages load faster -->
-
-	<script src="../js/vendor/video.js"></script>
-	<script src="../js/flat-ui.min.js"></script>
-	<script src="../docs/assets/js/prettify.js"></script>
-	<script src="../docs/assets/js/application.js"></script>
-	<script>
-		videojs.options.flash.swf = "../js/vendors/video-js.swf"
-	</script>
+  <script src="../js/vendor/video.js"></script>
+  <script src="../js/flat-ui.min.js"></script>
+  <script src="../docs/assets/js/prettify.js"></script>
+  <script src="../docs/assets/js/application.js"></script>
+  <script>
+          videojs.options.flash.swf = "../js/vendors/video-js.swf"
+        </script>
 	<%
 		} else {
 			out.print("<script>alert('Failed to Connect to Database.');document.location='rent-listing.jsp';</script>");

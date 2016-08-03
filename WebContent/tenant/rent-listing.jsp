@@ -145,7 +145,8 @@
 											<%=rs.getInt("price")%>
 										</h1>
 										<h5>
-											<i class="fa fa-map-marker"></i>&nbsp;&nbsp;<%=rs.getString("address")%>
+											<i class="fa fa-map-marker"></i>&nbsp;&nbsp;<%=rs.getString("street1")%>
+                  &nbsp;<%=rs.getString("street2")%>&nbsp;<%=rs.getString("city")%>&nbsp;<%=rs.getString("state")%>&nbsp;<%=rs.getString("zipcode")%>
 										</h5>
 										<h6>
 											<i class="fa fa-building-o"></i>&nbsp;&nbsp;<%=rs.getString("type")%>

@@ -21,9 +21,9 @@
 			out.print("<script>alert('Sorry, this email already exists. Please try with another one.');document.location='host-login.html';</script>");
 			return;
 		} else {
-			intT = data.insert("INSERT INTO owner(ownerEmail, password) VALUES('"
+			intT = data.insert("INSERT INTO owner VALUES('"
 					+ strEmail + "','"
-					+ strPassword + "')");
+					+ strPassword + "','" + "','" + "')");
 			if (intT <= 0) {
 				out.print("<script>alert('Home Owner account registration failed.');document.location='host-login.html';</script>");
 				return;
