@@ -127,8 +127,6 @@
 						String strEmail = (String) session.getAttribute("email");
 						ResultSet rs = con.getRs("SELECT * FROM rent");
 						while (rs.next()) {
-
-							int rentID = rs.getInt(1);
 					%>
 					<form action="rent-detail.jsp">
 						<div class="panel" id="basics">
@@ -137,7 +135,7 @@
 								<div class="row left-to-center">
 									<div class="col-sm-3 text-center">
 										<h3>
-											<img src="https://placem.at/places?w=500&h=500"
+											<img src=<%=rs.getString("image")%>
 												alt="House Image" class="rent-listing-image">
 										</h3>
 									</div>
@@ -148,14 +146,13 @@
 										</h1>
 										<h5>
 											<i class="fa fa-map-marker"></i>&nbsp;&nbsp;<%=rs.getString("address")%>
-											<%=rs.getString("zipcode")%>
 										</h5>
 										<h6>
 											<i class="fa fa-building-o"></i>&nbsp;&nbsp;<%=rs.getString("type")%>
 										</h6>
 
 										<h6 class="text-muted"><%=rs.getString("date")%></h6>
-										<input type="hidden" name="jobID" value="<%=rs.getInt(1)%>">
+										<input type="hidden" name="rentID" value="<%=rs.getInt(1)%>">
 										<button class="btn btn-primary" 
 											type="submit"> View </button>
 

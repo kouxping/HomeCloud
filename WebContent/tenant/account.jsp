@@ -67,9 +67,9 @@
 							class="fa fa-user"></em> &nbsp; Account <span class="caret"></span>
 					</a>
 						<ul class="dropdown-menu">
-							<li class=" active"><a href="../tenant/account.html">
+							<li class=" active"><a href="../tenant/account.jsp">
 									Profile </a></li>
-							<li><a href="#"> Log Out </a></li>
+							<li><a href="../tenant/account.html"> Log Out </a></li>
 						</ul></li>
 				</ul>
 
@@ -94,21 +94,21 @@
 								<div class="form-group">
 									<label for="" class="col-sm-3 control-label">First Name</label>
 									<div class="col-sm-9 ">
-										<input type="text" class="form-control" id="firstName"
-											placeholder="First Name" value="">
+										<input type="text" class="form-control" id="firstName" name="firstName"
+											placeholder="First Name" value="<%=rs.getString("firstName")%>">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="" class="col-sm-3 control-label">Last Name</label>
 									<div class="col-sm-9 ">
-										<input type="text" class="form-control" id="lastName"
-											placeholder="Last Name" value="">
+										<input type="text" class="form-control" id="lastName" name="lastName"
+											placeholder="Last Name" value="<%=rs.getString("lastName")%>">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail1" class="col-sm-3 control-label">Email</label>
 									<div class="col-sm-9 ">
-										<input type="email" class="form-control" id="email"
+										<input type="email" class="form-control" id="email" name="email"
 											placeholder="Email" value="<%=rs.getString("email")%>"
 											disabled>
 									</div>
@@ -134,7 +134,7 @@
 									<label for="inputEmail1" class="col-sm-3 control-label">Old
 										Password</label>
 									<div class="col-sm-9 ">
-										<input type="password" class="form-control" id="oldPassword"
+										<input type="password" class="form-control" id="oldPassword" name="oldPassword"
 											placeholder="Old Password">
 									</div>
 								</div>
@@ -142,7 +142,7 @@
 									<label for="inputEmail1" class="col-sm-3 control-label">New
 										Password</label>
 									<div class="col-sm-9 ">
-										<input type="password" class="form-control" id=""
+										<input type="password" class="form-control" id="newPassword" name="newPassword"
 											placeholder="New Password" name="newPassword">
 									</div>
 								</div>
@@ -150,7 +150,7 @@
 									<label for="inputEmail1" class="col-sm-3 control-label">Confirm
 										Password</label>
 									<div class="col-sm-9 ">
-										<input type="password" class="form-control" id=""
+										<input type="password" class="form-control" id="repeatPassword" name="repeatPassword"
 											placeholder="Repeat New Password">
 									</div>
 								</div>

@@ -17,7 +17,7 @@
 			int intT = 0;
 			Data data = new Data();
 			intT = data.insert("UPDATE tenant SET firstName='"
-					+ firstName +", lastName ='"+ lastName + "'WHERE email='"
+					+ firstName +"', lastName ='"+ lastName + "'WHERE email='"
 					+ strEmail + "'");
 			if (intT <= 0) {
 				out.print("<script>alert('Tenant account update failed.');document.location='account.jsp';</script>");

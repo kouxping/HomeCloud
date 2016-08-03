@@ -1,11 +1,11 @@
-<%@ page contentType="text/html; charset=utf-8" %>
+<%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="com.homecloud.db.Conn"%>
 <%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Job Detail | HomeCloud</title>
+    <title>Manage Jobs | HomeCloud</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Loading Bootstrap -->
@@ -32,16 +32,8 @@
   
 
 <body>
-            <%
-Conn con=new Conn();
-String strEmail=(String)session.getAttribute("email");
-String rentID=request.getParameter("rentID");
-ResultSet rs=con.getRs("SELECT * FROM rent where rentID='"+rentID+"'");
-  while(rs.next()){
-    
-%>
   <!-- Navigation -->
-  <nav class="navbar navbar-default navbar-fixed-top drop-shadow" role="navigation">
+  <nav class="navbar navbar-inverse navbar-fixed-top drop-shadow" role="navigation">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -57,8 +49,8 @@ ResultSet rs=con.getRs("SELECT * FROM rent where rentID='"+rentID+"'");
         <ul class="nav navbar-nav navbar-right">
           
           <li class=" active">
-            <a href="../tenant/rent-listing.jsp">
-              <i class="fa fa-home"></i>&nbsp;&nbsp;Search
+            <a href="rent-listing.html">
+              <i class="fa fa-building-o"></i>&nbsp;&nbsp;My Listing
             </a>
           </li>
           <li class="dropdown">
@@ -68,19 +60,18 @@ ResultSet rs=con.getRs("SELECT * FROM rent where rentID='"+rentID+"'");
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a href="../tenant/account.jsp">
+                <a href="account.html">
                   Profile
                 </a>
               </li>
               <li>
-                <a href="tenant-login.html">
+                <a href="#">
                   Log Out
                 </a>
               </li>
             </ul>
           </li>
         </ul>
-        
       </div>
       <!-- /.navbar-collapse -->
     </div>
@@ -89,53 +80,108 @@ ResultSet rs=con.getRs("SELECT * FROM rent where rentID='"+rentID+"'");
   
   <section class="content">
     <div class="container">
-    
-          <div class="panel">
+      <div class="row">
+        <div class="col-md-3 col-xs-12"><div>
+          <a href="rent-add.html" class="btn btn-primary btn-block btn-lg text-capitalize" target="_blank">
+          <i class="fa fa-plus"></i>&nbsp;&nbsp;add listing</a>
+        </div><br></div>
+        <div class="col-md-9 col-xs-12">
+        
+          <div class="panel panel-default" id="basics">
             <div class="panel-body">
-            <div class="row">
-              <div class="col-md-3 col-sm-3 text-center">
+            		<%
+						Conn con = new Conn();
+						String strEmail = (String) session.getAttribute("email");
+						ResultSet rs = con.getRs("SELECT * FROM rent WHERE ownerEmail = '" + strEmail + "'");
+						while (rs.next()) {
+					%>
+              <div class="row left-to-center">
+              <div class="col-sm-3 text-center">
               <h3><img src="https://placem.at/places?w=500&h=500" alt="House Image" class="rent-listing-image"></h3>
               </div>
-                <div class="col-sm-9 left-to-center">
+                <div class="col-sm-9">
                   <h1 class="text-uppercase">
                   <i class="fa fa-dollar"></i>
-                  <%=rs.getString("price")%></h1>
+                  3,000</h1>
                   <h5><i class="fa fa-map-marker"></i>&nbsp;&nbsp;<%=rs.getString("address")%></h5>
-                  <h6><i class="fa fa-building-o"></i>&nbsp;&nbsp;House Type: <%=rs.getString("type")%></h6>
+                  <h6><i class="fa fa-building-o"></i>&nbsp;&nbsp;<%=rs.getString("type")%></h6>
 
-                  <h6 class="text-muted"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Posted on <%=rs.getString("date")%></h6>
-                  <a class="btn btn-primary" href="mailto:<%=rs.getString("ownerEmail")%>" target="_blank">
-                      Contact
+                  <h6 class="text-muted"><%=rs.getString("date")%></h6>
+                  <input type="hidden" name="rentID" value="<%=rs.getInt(1)%>">
+                  <button class="btn btn-primary" type="submit">
+                      Edit
+                    </button>
+                 
+                </div>
+                
+              </div>
+              			<%
+						}
+					%>
+              <hr>
+              <div class="row left-to-center">
+              <div class="col-sm-3 text-center">
+              <h3><img src="https://placem.at/places?w=500&h=500" alt="House Image" class="rent-listing-image"></h3>
+              </div>
+                <div class="col-sm-9">
+                  <h1 class="text-uppercase">
+                  <i class="fa fa-dollar"></i>
+                  3,000</h1>
+                  <h5><i class="fa fa-map-marker"></i>&nbsp;&nbsp;2711 N 1st St, San Jose, CA 95134</h5>
+                  <h6><i class="fa fa-building-o"></i>&nbsp;&nbsp;Apartment</h6>
+
+                  <h6 class="text-muted">Mar 14, 2016</h6>
+                  <a class="btn btn-primary" href="../host/rent-edit.html" target="_blank">
+                      Edit
                     </a>
                  
                 </div>
+                
               </div>
-              
-              </div>
-              </div>
-              <div class="panel">
-              <div class="panel-body">
-              <div class="row">
-                <div class="col-md-9 col-sm-12">
-                <div>
-                  <h4>Description</h4>
-                  <p><%=rs.getString("description")%></p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-12">
-                  <div class="text-capitalize">
-                    <h4>Bedrooms</h4>
-                    <p><%=rs.getInt("bedrooms")%></p>
-                  </div>
-                  <div class="text-capitalize">
-                    <h4>Bathrooms</h4>
-                    <p><%=rs.getInt("bathrooms")%></p>
-                  </div>
-                </div>
-              </div>
-              </div>
+            
             </div>
-          <br>
+          </div>
+          <!--Pagination-->
+          
+          <div class="text-right">
+            <ul class="pagination">
+              <li class="previous disabled">
+                <a href="#fakelink" class="fui-arrow-left">
+                </a>
+              </li>
+              <li class="active">
+                <a href="#fakelink">
+                  1
+                </a>
+              </li>
+              <li>
+                <a href="#fakelink">
+                  2
+                </a>
+              </li>
+              <li>
+                <a href="#fakelink">
+                  3
+                </a>
+              </li>
+              <li>
+                <a href="#fakelink">
+                  4
+                </a>
+              </li>
+              <li>
+                <a href="#fakelink">
+                  5
+                </a>
+              </li>
+              <li class="next">
+                <a href="#fakelink" class="fui-arrow-right">
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <script>window.prettyPrint && prettyPrint();</script>
     </div>
   </section>
@@ -154,9 +200,5 @@ ResultSet rs=con.getRs("SELECT * FROM rent where rentID='"+rentID+"'");
   <script>
           videojs.options.flash.swf = "../js/vendors/video-js.swf"
         </script>
-
-                   <%
-  }
-%> 
 </body>
 </html>

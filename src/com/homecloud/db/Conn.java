@@ -1,5 +1,9 @@
 package com.homecloud.db;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.*;
 
 public class Conn {
@@ -7,7 +11,7 @@ public class Conn {
 	private Statement stmt;
 	private ResultSet rs;
 	private static final String drivername = "com.mysql.jdbc.Driver";
-	private static final String url = "jdbc:mysql://localhost:3306/homecloud?user=root&password=0000";
+	private static final String url = "jdbc:mysql://localhost:3306/homecloud?user=root&password=";
 
 
 	public static synchronized Connection getCon() throws Exception {
@@ -90,5 +94,21 @@ public class Conn {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
 		}
+	}
+	
+	
+	public static void main(String[] args) throws IOException {
+		  //File imgfile = new File("C:\\Users\\Di\\Desktop\\trolltunga.jpg");
+		  String source = FileUtil.readFileAsBase64Icon("C:\\Users\\Di\\Desktop\\trolltunga.jpg");
+	       //FileInputStream fin = new FileInputStream(imgfile);
+		  Conn con=new Conn();
+	    	  int intT = 0;
+				Data data = new Data();
+				intT = data.insert("UPDATE rent SET image='"
+						+ source +"'WHERE ownerEmail= 'lindi@itu.edu'");
+	   
+	       System.out.println("Inserting Successfully!");
+	 
+	       con.close(); 
 	}
 }

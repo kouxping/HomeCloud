@@ -21,9 +21,9 @@
 			out.print("<script>alert('Sorry, this email already exists. Please try with another one.');document.location='tenant-login.html';</script>");
 			return;
 		} else {
-			intT = data.insert("INSERT INTO tenant(email, password) VALUES('"
+			intT = data.insert("INSERT INTO tenant VALUES('"
 					+ strEmail + "','"
-					+ strPassword + "')");
+					+ strPassword + "','" + "','" + "')");
 			if (intT <= 0) {
 				out.print("<script>alert('Tenant account registration failed.');document.location='tenant-login.html';</script>");
 				return;
