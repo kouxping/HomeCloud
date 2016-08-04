@@ -98,7 +98,7 @@
 			<form action="rent-edit.jsp">
               <div class="row left-to-center">
               <div class="col-sm-3 text-center">
-              <h3><img src="https://placem.at/places?w=500&h=500" alt="House Image" class="rent-listing-image"></h3>
+              <h3><img src="<%=rs.getString("image")%>" alt="House Image" class="rent-listing-image"></h3>
               </div>
                 <div class="col-sm-9">
                   <h1 class="text-uppercase">

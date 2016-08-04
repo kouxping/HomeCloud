@@ -38,7 +38,7 @@
 	int intT = 0;
 	Data data = new Data();
 	intT = data
-			.insert("insert into rent(ownerEmail,price,type,bedrooms,bathrooms,street1,street2,city,state,zipcode,description,date) values('"
+			.insert("insert into rent(ownerEmail,price,type,bedrooms,bathrooms,street1,street2,city,state,zipcode,description,date,image) values('"
 					+ strEmail
 					+ "','"
 					+ price
@@ -62,11 +62,13 @@
 					+ description
 					+ "','"
 					+ dateFormat.format(date)
+					+ "','"
+					+ "https://placem.at/places?w=500&h=500"
 				    + "')");
 	if (intT <= 0) {
-		out.print("<script>alert('Failed to Connect to Database.');document.location='rent-listing.jsp';</script>");
+		out.print("<script>alert('Failed to Connect to Database.');document.location='rent-upload.jsp';</script>");
 		return;
 	} else {
-		out.print("<script>alert('The rent was added successfully.');document.location='rent-listing.jsp';</script>");
+		out.print("<script>alert('The rent was added successfully.');document.location='rent-upload.jsp';</script>");
 	}
 %>

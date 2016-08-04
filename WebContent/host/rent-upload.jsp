@@ -40,16 +40,13 @@
 Conn con=new Conn();
 String strEmail=(String)session.getAttribute("email");
 
-String rentID=(String)session.getAttribute("rentID");
-if (request.getParameter("rentID")!=null){
-	rentID=request.getParameter("rentID");
-	session.setAttribute("rentID",rentID);
-}
+ResultSet rs=con.getRs("SELECT * FROM rent Where rentID = (SELECT MAX(rentID) AS Max FROM rent)");
 
-ResultSet rs=con.getRs("SELECT * FROM rent where rentID='"+rentID+"'");
-  while(rs.next()){
-    
+while(rs.next()){	
+	String rentID = ""+rs.getInt(1);
+	session.setAttribute("rentID",rentID);    
 %>
+
   <!-- Navigation -->
   <nav class="navbar navbar-inverse navbar-fixed-top drop-shadow" role="navigation">
     <div class="container">
@@ -237,7 +234,7 @@ ResultSet rs=con.getRs("SELECT * FROM rent where rentID='"+rentID+"'");
 					<div class="row">
 						<div class="col-sm-6 col-xs-8">
 							<button class="btn btn-primary btn-block btn-wide text-capitalize"
-								type="submit">Update</button>
+								type="submit">Confirm</button>
 						</div>
 						<div class="col-sm-6 col-xs-8">
 							<a ng-click="cancelForm()" class="btn btn-block btn-default text-capitalize"> Cancel </a>
@@ -248,7 +245,7 @@ ResultSet rs=con.getRs("SELECT * FROM rent where rentID='"+rentID+"'");
         	</div>
         	
         	<div class="col-sm-4">
-        		<form name="uploadForm" action="../host/upload-edit.jsp" method="POST" enctype="multipart/form-data">
+        		<form name="uploadForm" action="../host/upload-add.jsp" method="POST" enctype="multipart/form-data">
 	        		<div class="panel">
 						<div class="row-space-top-1 panel-body text-center">
 	              			<img src="<%=rs.getString("image")%>" alt="House Image" class="rent-listing-image">

@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="com.homecloud.db.Data"%>
 <%@ page import="java.sql.*"%>
+<%@page import="java.io.*" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,8 +61,7 @@
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <em class="fa fa-user"></em>
-  &nbsp; Account <span class="caret"></span>
+              <em class="fa fa-user"></em>&nbsp; Account <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
               <li>
@@ -80,22 +81,18 @@
       <!-- /.navbar-collapse -->
     </div>
   </nav>
+  
 	<!-- Page Content -->
 
 	<section class="content">
-		
-			<div class="container">
-      <form action="../host/rent-add-update.jsp">
-<div class="row">
-<div class="col-sm-8">
+		<div class="container">
+      		<form action="../host/rent-add-update.jsp">
+				<div class="row">
+					<div class="col-sm-8">
 
 				<!--Basic Info-->
 				<div class="panel">
-
 					<div class="panel-body">
-
-		
-
 						<div class="row">
 							<div class="col-sm-6">
 								<label class="control-label" for="">Price</label>
@@ -104,27 +101,27 @@
 										name="price">
 								</div>
 							</div>
-              <div class="col-sm-6">
+              				<div class="col-sm-6">
 								<label class="control-label" for="">Property Type</label>
 								<div id="" class="form-group">
-                <select id="type" name="type" type="singleselect"
+                					<select id="type" name="type" type="singleselect"
 										data-toggle="select"
 										class="form-control select select-default">						
-						<option value="">Select a type</option>
-						<option value="Apartments">Apartments</option>
-						<option value="Condominium">Condominium</option>
-						<option value="Mobile/Manufactured">Mobile/Manufactured</option>
-						<option value="Multi-Family">Multi-Family</option>
-						<option value="Residential">Residential</option>
-						<option value="Resort">Resort</option>
-						<option value="TownHouse">TownHouse</option>
-						<option value="Waterfront">Waterfront</option>
-					</select>
-										
+										<option value="">Select a type</option>
+										<option value="Apartments">Apartments</option>
+										<option value="Condominium">Condominium</option>
+										<option value="Mobile/Manufactured">Mobile/Manufactured</option>
+										<option value="Multi-Family">Multi-Family</option>
+										<option value="Residential">Residential</option>
+										<option value="Resort">Resort</option>
+										<option value="TownHouse">TownHouse</option>
+										<option value="Waterfront">Waterfront</option>
+									</select>
 								</div>
 							</div>
 						</div>
-<div class="row">
+						
+						<div class="row">
 							<div class="col-sm-6">
 								<label class="control-label" for=""># of Bedroom</label>
 								<div id="" class="form-group">
@@ -134,19 +131,19 @@
 										<option value="" selected="selected">-</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
+					                    <option value="3">3</option>
+					                    <option value="4">4</option>
+					                    <option value="5">5</option>
+					                    <option value="6">6</option>
+					                    <option value="7">7</option>
+					                    <option value="8">8</option>
+					                    <option value="9">9</option>
+					                    <option value="10">10</option>
 										<option value="more">More</option>
 									</select>
 								</div>
 							</div>
-              <div class="col-sm-6">
+             				<div class="col-sm-6">
 								<label class="control-label" for=""># of Bathroom</label>
 								<div id="" class="form-group">
 									<select name="bathrooms" id="" type="singleselect"
@@ -155,19 +152,20 @@
 										<option value="" selected="selected">-</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
+					                    <option value="3">3</option>
+					                    <option value="4">4</option>
+					                    <option value="5">5</option>
+					                    <option value="6">6</option>
+					                    <option value="7">7</option>
+					                    <option value="8">8</option>
+					                    <option value="9">9</option>
+					                    <option value="10">10</option>
 										<option value="more">More</option>
 									</select>
 								</div>
 							</div>
 						</div>
+						
 						<div class="row row-space-2">
 							<div class="col-sm-12">
 								<label class="control-label" for="">Location</label>
@@ -175,41 +173,39 @@
 									<input type="text" class="form-control" id="" placeholder="Street Line"
 										name="street1">
 								</div>
-                </div>
-                </div>
-                <div class="row row-space-2">
-                <div class="col-sm-12">
-							<div id="">
-									<input type="text" class="form-control" id="" placeholder="Street Line 2"
-										name="street2">
+                			</div>
+                		</div>
+                		
+                		<div class="row row-space-2">
+                			<div class="col-sm-12">
+								<div id="">
+										<input type="text" class="form-control" id="" placeholder="Street Line 2"
+											name="street2">
+									</div>
 								</div>
-							</div>
-
 						</div>
-            <div class="row">
-                <div class="col-sm-6 row-space-2">
-							<div id="">
+            			
+            			<div class="row">
+                			<div class="col-sm-6 row-space-2">
+								<div id="">
 									<input type="text" class="form-control" id="" placeholder="City"
 										name="city">
 								</div>
 							</div>
-<div class="col-sm-3 row-space-2">
-							<div id="">
+							<div class="col-sm-3 row-space-2">
+								<div id="">
 									<input type="text" class="form-control" id="" placeholder="State"
-										name="state">
+											name="state">
 								</div>
 							</div>
-              <div class="col-sm-3 row-space-2">
-							<div id="">
+	              			<div class="col-sm-3 row-space-2">
+								<div id="">
 									<input type="text" class="form-control" id="" placeholder="Zipcode"
 										name="zipcode">
 								</div>
 							</div>
 						</div>
-						
-
-              
-
+					
 						<div class="row">
 							<div class="col-sm-12">
 								<label for="" class="control-label">Description</label>
@@ -220,37 +216,35 @@
 							</div>
 						</div>
 
-						
-
-
-
 					</div>
 				</div>
-        </div>
-        <div class="col-sm-4">
-        <div class="panel">
-							<div class="row-space-top-1 panel-body text-center">
-								<input type="file" name="image" value="">
-								<p class="help-block">
-									Upload photo of your property.
-								</p>
-								<input class="btn btn-primary btn-block row-space-top-2 text-capitalize"
-									type="submit" value="Upload" name="submit" />
-							</div>
-							</div>
-              </div>
-						</div>
-      <div class="row ">
-					<div class="col-sm-4 col-xs-6">
-						<button class="btn btn-primary btn-block btn-wide text-capitalize"
-							type="submit">Create</button>
+       		 </div>
+        	
+        	<div class="col-sm-4">
+        		<div class="panel">
+					<div class="row-space-top-1 panel-body text-center">
+						<input type="file" name="image" value="">
+						<p class="help-block">
+							Please create the listing profile before uploading photo of your property.
+						</p>
+						
 					</div>
-					<div class="col-sm-4 col-xs-6">
-						<a ng-click="cancelForm()"
-							class="btn btn-block btn-default text-capitalize"> Cancel </a>
-					</div>
-				</div><br>
-      </form>
+				</div>
+             </div>
+		
+	 	 </div>
+      
+      	<div class="row ">
+			<div class="col-sm-4 col-xs-6">
+				<button class="btn btn-primary btn-block btn-wide text-capitalize"
+					type="submit">Create</button>
+			</div>
+			<div class="col-sm-4 col-xs-6">
+				<a ng-click="cancelForm()"
+					class="btn btn-block btn-default text-capitalize"> Cancel </a>
+			</div>
+		</div><br>
+       </form>
 	</div>
 	</section>
 

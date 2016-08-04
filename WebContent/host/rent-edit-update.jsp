@@ -7,19 +7,19 @@
 	request.setCharacterEncoding("utf-8");
 %>
 <%
-String strEmail = (String) session.getAttribute("email");
-String rentID = request.getParameter("rentID");
-String price = request.getParameter("price");
-String type = request.getParameter("type");
-String bedrooms = request.getParameter("bedrooms");
-String bathrooms = request.getParameter("bathrooms");
-String street1 = request.getParameter("street1");
-String street2 = request.getParameter("street2");
-String city = request.getParameter("city");
-String state = request.getParameter("state");
-String zipcode = request.getParameter("zipcode");
-String description = request.getParameter("description");
-//String image = request.getParameter("image");
+	String strEmail = (String) session.getAttribute("email");
+	String rentID = (String)session.getAttribute("rentID");
+	String price = request.getParameter("price");
+	String type = request.getParameter("type");
+	String bedrooms = request.getParameter("bedrooms");
+	String bathrooms = request.getParameter("bathrooms");
+	String street1 = request.getParameter("street1");
+	String street2 = request.getParameter("street2");
+	String city = request.getParameter("city");
+	String state = request.getParameter("state");
+	String zipcode = request.getParameter("zipcode");
+	String description = request.getParameter("description");
+
 	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	Date date = new Date();
 	int intT = 0;
