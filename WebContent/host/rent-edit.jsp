@@ -253,7 +253,7 @@ ResultSet rs=con.getRs("SELECT * FROM rent where rentID='"+rentID+"'");
 						<div class="row-space-top-1 panel-body text-center">
 	              			<img src="<%=rs.getString("image")%>" alt="House Image" class="rent-listing-image">
 	              			<div class="row-space-top-1">
-								<input type="file" name="file" value="">
+								<input type="file" name="file" accept="image/*">
 									<p class="help-block">
 										Upload photo of your property.
 									</p>

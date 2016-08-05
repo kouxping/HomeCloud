@@ -32,7 +32,7 @@
   
 
 <body>
-            <%
+<%
 Conn con=new Conn();
 String strEmail=(String)session.getAttribute("email");
 String rentID=request.getParameter("rentID");
@@ -89,24 +89,27 @@ ResultSet rs=con.getRs("SELECT * FROM rent where rentID='"+rentID+"'");
   
   <section class="content">
     <div class="container">
-    
-          <div class="panel">
-            <div class="panel-body">
+		
+		<div class="panel">
+          <div class="panel-body">
             <div class="row">
               <div class="col-md-3 col-sm-3 text-center">
-              <h3><img src="https://placem.at/places?w=500&h=500" alt="House Image" class="rent-listing-image"></h3>
+              	<h3><img src="<%=rs.getString("image")%>" alt="House Image" class="rent-listing-image"></h3>
               </div>
-                <div class="col-sm-9 left-to-center">
-                  <h1 class="text-uppercase">
-                  <i class="fa fa-dollar"></i>
+              <div class="col-sm-9 left-to-center">
+              	<h1 class="text-uppercase">
+              	<i class="fa fa-dollar"></i>
                   <%=rs.getString("price")%></h1>
-                  <h5><i class="fa fa-map-marker"></i>&nbsp;&nbsp;<%=rs.getString("address")%></h5>
-                  <h6><i class="fa fa-building-o"></i>&nbsp;&nbsp;House Type: <%=rs.getString("type")%></h6>
-
-                  <h6 class="text-muted"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Posted on <%=rs.getString("date")%></h6>
+                  <h5><i class="fa fa-map-marker"></i>
+                  		&nbsp;&nbsp;<%=rs.getString("street1")%>
+                  &nbsp;<%=rs.getString("street2")%>&nbsp;<%=rs.getString("city")%>&nbsp;<%=rs.getString("state")%>&nbsp;<%=rs.getString("zipcode")%></h5>
+                  <h6><i class="fa fa-building-o"></i>
+                  		&nbsp;&nbsp;House Type: <%=rs.getString("type")%></h6>
+                  <h6 class="text-muted"><i class="fa fa-calendar"></i>
+                  		&nbsp;&nbsp;Posted on <%=rs.getString("date")%></h6>
                   <a class="btn btn-primary" href="mailto:<%=rs.getString("ownerEmail")%>" target="_blank">
-                      Contact
-                    </a>
+                      	Contact
+                  </a>
                  
                 </div>
               </div>

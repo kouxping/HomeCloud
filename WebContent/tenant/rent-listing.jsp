@@ -77,37 +77,37 @@
 				<div class="col-xs-12">
 
 					<div class="panel">
-
 						<div class="panel-body">
-							<form id="" name="" method="POST" action="">
+						
+							<form id="rentSearchForm" name="rentSearchForm" method="POST" 
+								action="rent-searching.jsp">
 
 								<div class="row">
 									<div class="col-sm-4">
 										<label class="control-label" for="">Zipcode</label>
 										<div class="">
 											<input type="text" class="form-control" id="zipcode"
-												placeholder="e.g. 95134">
-
+												placeholder="e.g. 95134" name="zipcode">
 										</div>
 									</div>
+									
 									<div class="col-sm-8">
 										<label class="control-label" for="">Price Range</label>
 										<div class="row">
 											<div class="col-xs-5">
 												<input type="text" class="form-control" id="minPrice"
-													placeholder="min.">
+													placeholder="min." name="minPrice">
 											</div>
 											<div class="col-xs-2 text-center">-</div>
 											<div class="col-xs-5">
 												<input type="text" class="form-control" id="maxPrice"
-													placeholder="max.">
+													placeholder="max." name="maxPrice">
 											</div>
-
 										</div>
 									</div>
+									
 									<div class="col-sm-12">
 										<div class=" row-space-top-3">
-
 											<button type="submit" class="btn btn-primary">
 												<i class="fa fa-search"></i>&nbsp;&nbsp;Search
 											</button>
@@ -116,6 +116,7 @@
 									</div>
 								</div>
 							</form>
+							
 						</div>
 					</div>
 				</div>

@@ -223,7 +223,7 @@
         	<div class="col-sm-4">
         		<div class="panel">
 					<div class="row-space-top-1 panel-body text-center">
-						<input type="file" name="image" value="">
+						<input type="file" name="image" accept="image/*">
 						<p class="help-block">
 							Please create the listing profile before uploading photo of your property.
 						</p>
