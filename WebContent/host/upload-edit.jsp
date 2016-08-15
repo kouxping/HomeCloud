@@ -4,6 +4,8 @@
 
 <%
 	String saveFile = new String();
+    String getFile = new String();
+    String fileName = new String();
 	String contentType = request.getContentType();
 	//String strEmail=(String)session.getAttribute("email");
 	
@@ -23,9 +25,9 @@
 		
 		String file = new String(dataBytes, "CP1256");
 		
-		saveFile = file.substring(file.indexOf("filename=\"") + 10);
-		saveFile = saveFile.substring(0, saveFile.indexOf("\n"));
-		saveFile = saveFile.substring(saveFile.lastIndexOf("\\") + 1, saveFile.indexOf("\""));
+		fileName = file.substring(file.indexOf("filename=\"") + 10);
+		fileName = fileName.substring(0, fileName.indexOf("\n"));
+		fileName = fileName.substring(fileName.lastIndexOf("\\") + 1, fileName.indexOf("\""));
 		
 		int lastIndex = contentType.lastIndexOf("=");
 		String boundary = contentType.substring(lastIndex + 1, contentType.length());
@@ -43,7 +45,7 @@
 		int endPos = ((file.substring(0, boundaryLocation)).getBytes("CP1256")).length;
 		
 		//saveFile = "/Users/kouxping/Documents/" + strEmail + ".pdf";
-		saveFile = "/Users/kouxping/Documents/" + saveFile;
+		saveFile = "/Users/kouxping/www/" + fileName;
 		
 		File ff = new File(saveFile);
 		
@@ -65,11 +67,11 @@
 	
 	String strEmail = (String) session.getAttribute("email");
 	String rentID = (String)session.getAttribute("rentID");
-	saveFile = "file:///" + saveFile;
+	getFile = "http://localhost/" + fileName;
 	
 	int intT = 0;
 	Data data = new Data();
-	intT = data.insert("UPDATE rent SET image='" + saveFile
+	intT = data.insert("UPDATE rent SET image='" + getFile
 			+ "'WHERE rentID='" + rentID + "'");
 	if (intT <= 0) {
 		out.print("<script>alert('Failed to connect to the database.');document.location='rent-edit.jsp';</script>");
